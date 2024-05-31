@@ -8,10 +8,16 @@
 Dentro de cada elemento de la lista mostramos cada propiedad del array (item.propiedad) -->
 <ul class="movie-list">
     @for (movie of movieService.movies; track $index) {
-    <li class="movie-item">
-        <h2>{{ movie.name }}</h2>
-        <h3>{{ movie.director }}</h3>
-        <h4>{{ movie.duration }}</h4>
+    <li>
+        <!-- Para las rutas parametrizadas, el atributo routerLink debe ir entre corchetes, ya que contiene una variable, en este caso el nombre de la pelicula -->
+        <a [routerLink]="movie.name" class="link">
+            <div class="movie-container">
+                <h2>{{ $index + 1 }}</h2>
+                <h2>{{ movie.name }}</h2>
+                <h3>{{ movie.director }}</h3>
+                <h4>{{ movie.duration }}</h4>
+            </div>
+        </a>
     </li>
     }
 </ul>

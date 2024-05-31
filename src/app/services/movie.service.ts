@@ -28,5 +28,9 @@ export class MovieService {
   addMovie(movie: Movie): void {
     this.movies.push(movie);
   } // Se crea el método .push sobre el array "movies" (tipado con el modelo "Movie") para añadir nuevo item cuando se rellene el formulario "movie-form". Para ello se debe acceder a esta función desde el .ts del componente movie-form 
+
+  getMovie(name: string): Movie | undefined {
+    return this.movies.find((movie) => movie.name === name)
+  } // Se crea el método .find sobre el array "movies" (tipado con el modelo "Movie") para buscar un item que tenga la propiedad name = name que recibe la funcion getMovie como argumento
 }
 // todas las variables y métodos creadas dentro de la clase de un servicio se van a poder utilizar desde cualquier componente del proyecto
