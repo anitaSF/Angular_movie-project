@@ -1,0 +1,16 @@
+.movie-list {
+    margin: 30px;
+
+    .movie-item {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding-left: 20px;
+        background-color: rgb(124, 234, 197);
+        border-bottom: 1px solid black;
+    }
+
+    .movie-item:hover {
+        background-color: orange;
+    }
+}
