@@ -1,6 +1,10 @@
 .movie-list {
     margin: 30px;
 
+    a {
+        text-decoration: none;
+    }
+
     .movie-container {
         display: flex;
         align-items: center;

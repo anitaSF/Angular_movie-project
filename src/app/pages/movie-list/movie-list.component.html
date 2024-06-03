@@ -1,15 +1,14 @@
 <app-header></app-header>
-<h2>MOVIES</h2>
 
 <!-- Para acceder a la variable de un servicio funciona como imprimir la propiedad de un objeto {{ nombreService.variable }}  -->
-<h3>{{ movieService.heading }}</h3>
+<h2 class="pag-title">{{ movieService.heading }}</h2>
 
 <!-- Con un bucle @for sacamos un listado de las peliculas, accediendo a la variable array "movies", y sacando las propiedades para cada item "movie": @for (item of nombreService.array; track $index) {}
 Dentro de cada elemento de la lista mostramos cada propiedad del array (item.propiedad) -->
 <ul class="movie-list">
     @for (movie of movieService.movies; track $index) {
     <li>
-        <!-- Para las rutas parametrizadas, el atributo routerLink debe ir entre corchetes, ya que contiene una variable, en este caso el nombre de la pelicula -->
+        <!-- Para las rutas parametrizadas, el atributo routerLink debe ir entre corchetes, ya que contiene una variable, en este caso el nombre de la pelicula, que es el atributo del array que está asociado al parámetro de la ruta -->
         <a [routerLink]="movie.name" class="link">
             <div class="movie-container">
                 <h2>{{ $index + 1 }}</h2>

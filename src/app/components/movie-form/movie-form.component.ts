@@ -5,14 +5,14 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 @Component({
   selector: 'app-movie-form',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule], // Modulo para trabajar con formularios reactivos. Se debe importar arriba también
   templateUrl: './movie-form.component.html',
   styleUrl: './movie-form.component.css'
 })
 
 export class MovieFormComponent {
-  movieForm: FormGroup;
-  name: FormControl;
+  movieForm: FormGroup; // Se definen el tipo de variable que es cada elemento del formulario. Para el formulario completo <form></form> por defecto es "FormGroup"
+  name: FormControl; // Para los campos del formulario <input> por defecto es "FormControl"
   duration: FormControl;
   director: FormControl;
 
@@ -38,7 +38,7 @@ export class MovieFormComponent {
   }
   // Se crea el metodo handleSubmit para que cuando se envíe el formulario, se ejecuten varios submétodos: 
   // 1. mostrar en consola el array de la nueva película creada.
-  // 2. añadir una nueva película en el servicio MovieService (método .addMovie creado en el servicio con el método .push sobre el array "movie")
+  // 2. añadir una nueva película al array Movie creado en el servicio MovieService gracias al método .addMovie creado en el mismo servicio con el método .push sobre el array "movies". Entre paréntesis, el argumento define que se debe añadir todos los varloes introducidos en el formulario "movieForm" (this.movieForm.value)
   // 3. limpiar el formulario (metodo .reset). Este método debe colocarse abajo del todo de la función para que se ejecuten los métodos anteriores sin problema
 
 }

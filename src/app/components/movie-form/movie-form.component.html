@@ -1,4 +1,7 @@
+<!-- Para enlazar el elemento <form> con el formulario reactivo definido en el .ts del componente, se utiliza el atributo [formGroup]="nombreForm" que lo enlaza con la variable creada para este elemento en el .ts. Ademñas cada campo se debe enlazar con la variable respectiva con el atributo "formControlName"="valorVariableCampo"  -->
+
 <form (submit)="handleSubmit()" [formGroup]="movieForm">
+    <!-- Se crea el evento (submit) para que al enviar el formulario se ejexute el método creado en el .ts "handleSubmit()" -->
     <fieldset>
         <label for="movie-name">*Movie Name:</label>
         <input type="text" id="movie-name" formControlName="name" />

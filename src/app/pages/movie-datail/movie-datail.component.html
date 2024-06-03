@@ -1,1 +1,15 @@
-<p>movie-datail works!</p>
+<app-header></app-header>
+
+<div class="card-movie">
+    @if (selectedMovie) {
+    <h2> {{ selectedMovie.name }} </h2>
+    <h3> {{ selectedMovie.duration }} </h3>
+    <h3> {{ selectedMovie.director }} </h3>
+    } @else {
+    <h3>No hay ninguna película con ese nombre</h3>
+    }
+</div>
+
+<button><a routerLink="/movies">Volver ></a></button>
+
+<!-- Elementos html para mostrar las diferentes propiedades del array "movies" de cada item clicado (conteido alojado en la variable "selectedMovie") -->
