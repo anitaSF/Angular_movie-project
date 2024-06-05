@@ -1,1 +1,12 @@
-<p>users-list works!</p>
+<app-header></app-header>
+
+<ul>
+    @for (user of userService.users; track user.id) {
+    <li>
+        <div>
+            <h3> {{ user.name }} </h3>
+            <h4> {{ user.email }} </h4>
+        </div>
+    </li>
+    }
+</ul>
