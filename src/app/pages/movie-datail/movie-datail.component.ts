@@ -20,7 +20,7 @@ export class MovieDatailComponent {
     private route: ActivatedRoute, // Para usar una ruta parametrizada definida en el archivo routes.ts se debe declarar en el argumento del constructor y definirla como una "private route" (private route: ActivatedRoute)
     public movieService: MovieService) // Se importa el servicio "MovieService", para utilizar la función getMovie y que nos devuelva el contenido de la película seleccionada. 
   {
-    const movieName = route.snapshot.params['movieName']; // Se crea una variable para alojar la ruta. En el valor dado a la variable dado entre corchetes [] "route.snapshot.params['parametro']" debe definir el parámetro que vamos a pasar en el archivo app.routes.ts (path: 'pagRaiz/:parametro'). 
+    const movieName = this.route.snapshot.params['movieName']; // Se crea una variable para alojar la ruta. En el valor dado a la variable dado entre corchetes [] "route.snapshot.params['parametro']" debe definir el parámetro que vamos a pasar en el archivo app.routes.ts (path: 'pagRaiz/:parametro'). 
     // En este caso, el valor definido entre corchetes ['movieName'] debe ser el mismo que el parámetro de la ruta en app.routes.ts (path: 'movies/:movieName').
 
     // Ir al servicio "movieService" para ejecutar la función con el método de buscar y devolver el contenido de la película correspondiente a la ruta parametrizada seleccionada

@@ -3,7 +3,7 @@
 <!-- Para acceder a la variable de un servicio funciona como imprimir la propiedad de un objeto {{ nombreService.variable }}  -->
 <h2 class="pag-title">{{ movieService.heading }}</h2>
 
-<!-- Con un bucle @for sacamos un listado de las peliculas, accediendo a la variable array "movies", y sacando las propiedades para cada item "movie": @for (item of nombreService.array; track $index) {}
+<!-- Con un bucle @for sacamos un listado de las peliculas, accediendo a la variable array "movies", y sacando las propiedades para cada item "movie". La propiedad de referencia por defecto es $index (posición del item en el array. Como empieza desde cero, para mostrarlo se le debe incrementar +1): @for (item of nombreService.array; track $index) {}
 Dentro de cada elemento de la lista mostramos cada propiedad del array (item.propiedad) -->
 <ul class="movie-list">
     @for (movie of movieService.movies; track $index) {

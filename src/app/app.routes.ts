@@ -16,7 +16,7 @@ export const routes: Routes = [
     // El componente, como en las rutas normales, es el nombre del componente creado para mostrar la información interior de cada elemento del listado. Se debe importar arriba también
 
     { path: 'users', component: UsersListComponent },
-    { path: 'users/:id', component: UserDetailsComponent }
+    { path: 'users/:id', component: UserDetailsComponent }, // Igual que para abrir la página detalle de una película, para mostrar el perfil de cada usuario, usamos rutas parametrizadas. Desde cada item "user" de la lista se accedera a sus datos gracias a esta ruta. El parámetro definido en este caso es el id
 ];
 
 // En html que vamos a utilizar estas rutas, debemos llamar a este archivo router como un elemento html más <router-outlet></router-outlet> al inicio
