@@ -38,4 +38,19 @@ export class UsersListComponent implements OnInit {
     });
     // Este código es siempre el mismo para cualquier petición a una API, únicamente variará el nombre del servicio y la variable getItem() creada en este servicio para inicializar la peticion
   }
+
+
+  // Crear funcion para eliminar usuario. Para ello se llama a la función creada en el servicio asociado (userService) para eliminar un item y en el atributo el parámetro por el que se selecciona el item: .deleteItem(parametro) (en este caso .deleteUser(id)). En esta función que se está creando también se incluye el parámetro y su tipo en el argumento (id: string). Es string porque aunque esté definido como number, se ha cambiado en el html para que Angular lo acepte como valor del atributo RouterLink
+  // Siempre aplicar método .subscribe al trabajar con datos de API, para que si la petición es ok se ejecute la función y sino aparezca un error
+  deleteUser(id: number) {
+    this.userService.deleteUser(id).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.getUsersComp(); // Se incluye una mejora del código para que cuando se elimine un item se actualice la lista de nuevo, de ahí que llame a la función getItemComp (getUsersComp) que devuelve el array de objetos importado de la API
+      },
+      error: (e) => {
+        console.log(e);
+      },
+    }); // 
+  }
 }

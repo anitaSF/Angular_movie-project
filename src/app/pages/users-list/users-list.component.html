@@ -7,10 +7,13 @@ Dentro de cada elemento de la lista mostramos cada propiedad del array (item.pro
     <li>
         <div>
             <!-- Para las rutas parametrizadas, el atributo routerLink debe ir entre corchetes, ya que contiene una variable, en este caso el id (user.id), que es el atributo del array que está asociado al parámetro de la ruta -->
-            <a [routerLink]="user.id">
+            <a [routerLink]="user.id.toString()">
+                <!-- Se conviernte la propiedad user.id definida como number en el modelo a un string, ya que por defencto el atributo routerLink es un string y no admite otro tipo de dato -->
                 <h3> {{ user.name }} </h3>
             </a>
             <h4> {{ user.email }} </h4>
+            <button (click)="deleteUser(user.id)">Borrar Usuario</button>
+            <!-- Botón con evento click asociado a la función de borrar item definida en el .ts y en el argumento se le pasa la propiedad usada como parámetro: deleteItem(item.prop). En este ejemplo deleteUser(user.id) -->
         </div>
     </li>
     }

@@ -1,3 +1,4 @@
+import { UserFormComponent } from './pages/user-form/user-form.component';
 import { Routes } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
@@ -18,6 +19,8 @@ export const routes: Routes = [
 
     { path: 'users', component: UsersListComponent },
     { path: 'users/:id', component: UserDetailsComponent }, // Igual que para abrir la página detalle de una película, para mostrar el perfil de cada usuario, usamos rutas parametrizadas. Desde cada item "user" de la lista se accedera a sus datos gracias a esta ruta. El parámetro definido en este caso es el id
+
+    { path: 'newuser', component: UserFormComponent },
 ];
 
 // En html que vamos a utilizar estas rutas, debemos llamar a este archivo router como un elemento html más <router-outlet></router-outlet> al inicio
