@@ -1,5 +1,7 @@
 <app-header></app-header>
 
+<!-- Con un bucle @for sacamos un listado de usuarios, accediendo a la variable array "users", y sacando las propiedades para cada item "user". En este caso como referencia del "track" se susutituye el $index por defecto por la propiedad "id" de cada objeto del array: @for (item of nombreService.array; track item.id) {}
+Dentro de cada elemento de la lista mostramos cada propiedad del array (item.propiedad) -->
 <ul>
     @for (user of userService.users; track user.id) {
     <li>

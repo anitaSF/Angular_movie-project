@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
-  API_URL = 'https://jsonplaceholder.typicode.com/users';
+  API_URL = 'https://jsonplaceholder.typicode.com/users'; // Crear una variable para alojar la ruta de la API desde donde vamos a importar los datos
 
   users: any[]; // Crear la variable para alojar el array de objetos que se va a importar de la API. Se le asinga el tipo "any[]" ya que se debería crear un modelo con la estructura del array de objeto que vayamos a importar, pero para ejemplo vale con any[] (array de tipo x vacio)
 
@@ -18,6 +18,10 @@ export class UserService {
 
   getUsers() {
     return this.http.get<any>(this.API_URL)
-  } // Se crea una funcion para hacer la peticion a la API: para coger toda la información con el método .get y con return para guardar y devolver la información cuando se llame a la función: getItems() {return this.http.get<tipo_dato>(this.API_URL)
+  } // Se crea una funcion para inicializar la peticion a la API: para coger toda la información con el método .get con el tipo de dato entre <>, y con return para guardar y devolver la información cuando se llame a la función: getItems() {return this.http.get<tipo_dato>(this.API_URL).
+  // Esta función se utilizará siempre para las peticiones a API. Únicamente cambiará el nombre dependiendo del tipo de proyecto: sera "getItem()", siendo Item el tipo de objeto con el que se trabaje en cada proyecto. En este caso al ser User, es getUsers
+
   // Para terminar de realizar la petición, desde el .ts del componente donde se imprimirá la información, se debe llamar a esta función getUsers y aplicarle el método .suscribe
+
+  
 }
