@@ -23,5 +23,8 @@ export class UserService {
 
   // Para terminar de realizar la petición, desde el .ts del componente donde se imprimirá la información, se debe llamar a esta función getUsers y aplicarle el método .suscribe
 
-  
+  getUser(id: number) {
+    return this.http.get<any>(`${this.API_URL}/${id}`)
+  } // Crear una función para hacer una petición a la API que devuelva la información de un item concreto para mostrala en la página detalle (user-detail). Como solo se quiere coger la info de un solo item, en el argumento de la función se debe indicar la propiedad indice de cada objeto del array y su tipo (id: number).
+  // Para coger la información se ejecuta el método .get con el tipo de dato entre <>, y con return para guardar y devolver la información cuando se llame a la función. Como solo debe devolver las propiedades del objeto del array con un determinado id, la url incluida en el argumento del método, debe componerse por un string de variables (`${this.variable_URL}/${variable_parametro}`): getItem() {return this.http.get<tipo_dato>(`${this.API_URL}/${id}`). 
 }

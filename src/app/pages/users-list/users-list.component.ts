@@ -1,11 +1,12 @@
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core'; // Importar OnInit para poder trabajar con este método en la clase del componente
 import { HeaderComponent } from '../../components/header/header.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-users-list',
   standalone: true,
-  imports: [HeaderComponent],
+  imports: [HeaderComponent, RouterLink],
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.css'
 })
@@ -15,11 +16,12 @@ export class UsersListComponent implements OnInit {
     // Importar el servicio donde se define la función de petición a la API (en este caso UserService)
   }
 
-  ngOnInit(): void {
-    this.getUsersComp();
-  } // La función "ngOnInit" es un método por defecto de ángular para incluir la declaración de funciones que tengan lógica, sobretodo en las peticiones a API. Dejamos el constructor para declara las variables a las que se le asigna el valor directamente.
+  // La función "ngOnInit" es un método por defecto de ángular para incluir la declaración de funciones que tengan lógica, sobretodo en las peticiones a API. Dejamos el constructor para declara las variables a las que se le asigna el valor directamente.
   // Se debe indicar en la clase: export class NombreComponent implements OnInit
   // Se debe importar arriba también
+  ngOnInit(): void {
+    this.getUsersComp(); // Declarar la función definida abajo para que se ejecute
+  }
 
 
   // Para terminar la petición a la API definida en el servicio asociado (user.service.ts), se debe aplicar el metodo .subscribe sobre la funcion creada para ello. Este método tiene dos propiedades: next (código que se ejecuta si la peticion sale bien) y error (código que se ejecuta cuando la petición da error)

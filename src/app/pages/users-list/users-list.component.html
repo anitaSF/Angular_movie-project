@@ -6,7 +6,10 @@ Dentro de cada elemento de la lista mostramos cada propiedad del array (item.pro
     @for (user of userService.users; track user.id) {
     <li>
         <div>
-            <h3> {{ user.name }} </h3>
+            <!-- Para las rutas parametrizadas, el atributo routerLink debe ir entre corchetes, ya que contiene una variable, en este caso el id (user.id), que es el atributo del array que está asociado al parámetro de la ruta -->
+            <a [routerLink]="user.id">
+                <h3> {{ user.name }} </h3>
+            </a>
             <h4> {{ user.email }} </h4>
         </div>
     </li>

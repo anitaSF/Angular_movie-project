@@ -1,1 +1,14 @@
-<p>user-details works!</p>
+<app-header></app-header>
+
+@if (selectedUser){
+<h2>{{ selectedUser.name }}</h2>
+<h3>{{ selectedUser.email }}</h3>
+<h3>{{ selectedUser.adress.city }}</h3>
+<h3>{{ selectedUser.adress.street }}</h3>
+} @else {
+<h4>No hay ningún usuario con ese id</h4>
+}
+<!-- Elementos html para mostrar las diferentes propiedades de los objetos del array (en este caso "users") de cada item clicado (contenido alojado en la variable "selectedItem")
+ Se usa un condicional para comprobar si existe el item del id seleccionado @if(selectedItem) {mostrar la información pintada}, y si no existe (undefined) mostrará el mensaje del @else{mensaje error} -->
+
+<button><a routerLink="/users">Volver ></a></button>
