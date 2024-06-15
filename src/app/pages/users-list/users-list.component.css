@@ -1,0 +1,66 @@
+.user-list {
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    .user-item {
+        width: 300px;
+        height: 150px;
+        background-color: rgb(124, 234, 197);
+        padding: 20px;
+        border-radius: 10px;
+        position: relative;
+        transition: all 0.3s;
+
+        .user-link {
+            color: black;
+
+            .user-name {
+                margin: 0;
+            }
+        }
+
+        .trash-icon {
+            font-size: 1.5rem;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            border: 0;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .trash-icon:hover {
+            cursor: pointer;
+            border: 1px solid tomato;
+            background-color: rgb(237, 224, 222);
+        }
+
+
+    }
+
+    .user-item:hover {
+        transform: scale(1.025);
+        border: 1px solid rgb(0, 92, 77);
+        z-index: ;
+    }
+
+    .user-item.selected {
+        background-color: orange;
+        border: 1px solid rgb(0, 92, 77);
+    }
+}
+
+@media (max-width: 900px) {
+    .user-list {
+        .user-item {
+            width: 100%;
+            text-align: center;
+
+            .trash-icon {
+                right: 48%;
+            }
+        }
+    }
+}

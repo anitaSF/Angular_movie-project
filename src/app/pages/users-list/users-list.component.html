@@ -2,17 +2,18 @@
 
 <!-- Con un bucle @for sacamos un listado de usuarios, accediendo a la variable array "users", y sacando las propiedades para cada item "user". En este caso como referencia del "track" se susutituye el $index por defecto por la propiedad "id" de cada objeto del array: @for (item of nombreService.array; track item.id) {}
 Dentro de cada elemento de la lista mostramos cada propiedad del array (item.propiedad) -->
-<ul>
+<ul class="user-list">
     @for (user of userService.users; track user.id) {
-    <li>
+    <!-- Se aplica una clase conidiconal [ngClass] al elemento <li> que se activará cuando se seleccione. Para ello se define el evento (click) que ejecuta el método "selectedUser" definido en el .ts del componente y se le pasa como argumento la propiedad id del item (user.id) para que la clase solo se aplique sobre ese <li> seleccionado  -->
+    <li class="user-item" [ngClass]="{selected: user.id === selectedUser}" (click)="selectUser(user.id)">
         <div>
             <!-- Para las rutas parametrizadas, el atributo routerLink debe ir entre corchetes, ya que contiene una variable, en este caso el id (user.id), que es el atributo del array que está asociado al parámetro de la ruta -->
-            <a [routerLink]="user.id.toString()">
+            <a [routerLink]="user.id.toString()" class="user-link">
                 <!-- Se conviernte la propiedad user.id definida como number en el modelo a un string, ya que por defencto el atributo routerLink es un string y no admite otro tipo de dato -->
-                <h3> {{ user.name }} </h3>
+                <h3 class="user-name"> {{ user.name }} </h3>
             </a>
             <h4> {{ user.email }} </h4>
-            <button (click)="deleteUser(user.id)">Borrar Usuario</button>
+            <button class="trash-icon" (click)="deleteUser(user.id)">🗑</button>
             <!-- Botón con evento click asociado a la función de borrar item definida en el .ts y en el argumento se le pasa la propiedad usada como parámetro: deleteItem(item.prop). En este ejemplo deleteUser(user.id) -->
         </div>
     </li>

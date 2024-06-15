@@ -2,15 +2,17 @@ import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core'; // Importar OnInit para poder trabajar con este método en la clase del componente
 import { HeaderComponent } from '../../components/header/header.component';
 import { RouterLink } from '@angular/router';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-users-list',
   standalone: true,
-  imports: [HeaderComponent, RouterLink],
+  imports: [HeaderComponent, RouterLink, NgClass],
   templateUrl: './users-list.component.html',
   styleUrl: './users-list.component.css'
 })
 export class UsersListComponent implements OnInit {
+  selectedUser: number = 0;  // Variable creada para dar estilos css condicionales con ngClass. Se le asigna tipo "number" y se le da valor "0"
 
   constructor(public userService: UserService) {
     // Importar el servicio donde se define la función de petición a la API (en este caso UserService)
@@ -53,4 +55,11 @@ export class UsersListComponent implements OnInit {
       },
     }); // 
   }
+
+  selectUser(id: number) {
+    this.selectedUser = id;
+  }
+  // Metodo creado para cambiar el valor de la variable selectedUser creada arriba por el valor del id del user item seleccionado, y con ello poder aplicar un estilo determinado mediante la ngClass llamada en el html con el evento (click) y definida en el css del componente
+
 }
+
